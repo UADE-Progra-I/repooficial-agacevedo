@@ -1,3 +1,5 @@
+import random
+
 # Creamos una matriz estatica de 2 filas por 2 columnas
 matriz_estatica = [[1, 2], [3, 4]]
 
@@ -55,3 +57,26 @@ matriz3x4porComp = [[0] * columnas for fil in range(filas)]
 print("\nMetodo 3:")
 print(matriz3x4porComp)
 # [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+
+# Alternativa 4 para crear matrices dinámicas con numeron random
+filas = 3
+columnas = 4
+matriz3x4porComp = [[random.randint(1, 10)] * columnas for fil in range(filas)]
+print("\nMetodo 4:")
+print(matriz3x4porComp)
+# [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+
+
+# jugando en clase
+filas = 3
+columnas = 4
+matrizTest = []
+for fila in range(filas):  # for fil in range(filas)
+    matrizTest.append([])
+    for columna in range(columnas):
+        matrizTest[fila].append(columna)  # [0] * columnas
+
+# print claro
+print("*" * 10)
+for fila in matrizTest:
+    print(fila)

@@ -11,9 +11,9 @@ estudiantes_datos = [
     ["Valentina", "Raposo", 24],
 ]
 
-estudiantes_datos.sort()
-print(estudiantes_datos)
+# estudiantes_datos.sort()
+# print(estudiantes_datos)
 
 # Y como hacemos para ordenarla por edad?
-estudiantes_datos_ordenados = sorted(estudiantes_datos, key=lambda x: x[2])
+estudiantes_datos_ordenados = sorted(estudiantes_datos, key=lambda x: x[0], reverse=True)
 print(estudiantes_datos_ordenados)

@@ -21,8 +21,9 @@ def main():
             if validarPassException(password):
                 print("Password valida!")
                 break
-        except:
+        except Exception as e:
             print("La password no cumple con los requisitos")
+            print("Motivo:", e)
             next = input("Presione 's' intentarnuevamente o cualquier tecla para cancelar: ").strip().lower()
             if next != 's':
                 break

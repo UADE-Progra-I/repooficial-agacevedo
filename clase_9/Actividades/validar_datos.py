@@ -7,7 +7,7 @@ La función validar, recibe dos argumentos:
 2. valor: el valor correspondiente a ese dato
 
 Analizar:
-1. Qué sucede si al invocar la función validar, recibe como argumento, un campo que la función no conocer?
+1. Qué sucede si al invocar la función validar, recibe como argumento, un campo que la función no conoce?
 2. Cómo se podría mejorar?
 3. Cómo se podrían generar (raise) exceptions y como manejarlas desde la función que las invoca para no interrumpir el flujo del programa?
 """
@@ -17,18 +17,17 @@ Analizar:
 import re
 
 def main():
-    campo = "Name"
-    valor = "JUan"
-
+    valor = 11
+    campo = "Nombre"
     print(validar(campo, valor))
 
 # Función de validación   
 def validar(campo, valor): # Valida un valor según el tipo de campo.
     
     if campo == "Nombre":
-        if valor is None or valor.strip() == "":
+        if valor is None or str(valor).strip() == "":
             return False
-        if not all(parte.isalpha() for parte in valor.split()):
+        if not all(parte.isalpha() for parte in str(valor).split()):
             return False
         return True
     

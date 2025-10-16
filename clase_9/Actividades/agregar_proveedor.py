@@ -24,8 +24,22 @@ P_EMAIL = r".+@.+\..+"
 
 
 def main():
-    crear_proveedor(proveedores)
-    print(proveedores)
+    print("Inicio")
+    exit = 1
+    while exit:
+        try:
+            crear_proveedor(proveedores)
+            print()
+            print("Proveedores:")
+            print(proveedores)
+            print()
+            exit = input("proveedor agregado, ingrese 1 para agregar otro proveedor, ingrese cualquier otra tecla para salir.")
+        except Exception as e:
+            print(f"Error: {e}")
+        except ValueError as ve:
+            print(f"Error en campo ingresado: {ve}")
+
+
 
 def siguiente_id(matriz):
     return (max([x["id"] for x in matriz]) + 1) if matriz else 1
@@ -37,14 +51,14 @@ def crear_proveedor(proveedores):
         nombre = input("Ingrese el nombre del proveedor: ")
         if re.match(P_NOMBRE, nombre):
             break
-        print("Error: Nombre inválido")
+        raise ValueError("Nombre invalido")
 
     # Solicitar y validar email
     while True:
         email = input("Ingrese el email del proveedor: ")
         if re.match(P_EMAIL, email):
             break
-        print("Error: Email inválido")
+        raise ValueError("Mail invalido")
 
     proveedor = {
         "id": siguiente_id(proveedores),

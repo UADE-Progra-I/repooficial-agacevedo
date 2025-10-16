@@ -26,6 +26,8 @@ def main():
             next = input("Presione 's' intentarnuevamente o cualquier tecla para cancelar: ").strip().lower()
             if next != 's':
                 break
+        finally:
+            print("")
 
 
 def validarPass(password):
@@ -61,11 +63,11 @@ def validarPassException(password):
     - Al menos un número.
     - Al menos un símbolo (no alfanumérico).
     """
-    if not isinstance(password, str):
-        raise TypeError("La contraseña debe ser una cadena de texto.")
-
     if len(password) < 8 or len(password) > 12:
         raise ValueError("La contraseña debe tener entre 8 y 12 caracteres.")
+
+    if not isinstance(password, str):
+        raise TypeError("La contraseña debe ser una cadena de texto.")
 
     if not any(c.isalpha() for c in password):
         raise ValueError("La contraseña debe contener al menos una letra.")
@@ -76,7 +78,7 @@ def validarPassException(password):
     if not any(not c.isalnum() for c in password):
         raise ValueError("La contraseña debe contener al menos un símbolo (no alfanumérico).")
 
-    return True
+    return response
 
 
 

@@ -17,12 +17,14 @@ Analizar:
 import re
 
 def main():
-    valor = "33"
-    campo = "Correo"
+    campo = "Name"
+    valor = "JUan"
+
     print(validar(campo, valor))
 
 # Función de validación   
 def validar(campo, valor): # Valida un valor según el tipo de campo.
+    
     if campo == "Nombre":
         if valor is None or valor.strip() == "":
             return False

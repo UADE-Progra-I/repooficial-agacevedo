@@ -11,8 +11,13 @@ no contemplados en el menú
 
 def main():
     imprimir_menu()
-    opcion = get_opcion()
-    print(f"Opción elegida: {opcion}")
+    try:
+        opcion = get_opcion()
+        print(f"Opción elegida: {opcion}")
+    except Exception as e:
+        print(e)
+
+
 
 def imprimir_menu():    
     print("OPCIONES DISPONIBLES")

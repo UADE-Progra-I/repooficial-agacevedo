@@ -12,15 +12,26 @@ M = [[1, 2], [4, 5]]
 A = 2
 """
 
+
+# def ejercicio_2(matriz, escalar):
+#     nFilas = len(matriz)
+#     nColumnas = len(matriz[0])
+#     resultado = [[0]*nColumnas for _ in range(nFilas)]
+#     for i in range(nFilas):
+#         for j in range(nColumnas):
+#             resultado[i][j] = matriz[i][j] * escalar
+#     return resultado
+
 def ejercicio_2(matriz, escalar):
     nFilas = len(matriz)
     nColumnas = len(matriz[0])
     resultado = []
     for i in range(nFilas):
+        columnas = []
         for j in range(nColumnas):
-            resultado[i][j] = matriz[i][j] * escalar
+            columnas.append(matriz[i][j] * escalar)
+        resultado.append(columnas)
     return resultado
-
 
 
 """
@@ -37,6 +48,7 @@ genera una lista con los cuadrados de los números del 1 al 5 utilizando lista p
 Arma la función y su test asociado
 """
 
+
 def ejercicio_4():
     return [x * x for x in range(1, 6)]
 
@@ -52,9 +64,10 @@ numeros = [3, -1, 0, 7, -5, 10, -2]
 Arma la función y su test asociado
 """
 
+
 def ejercicio_5():
     numeros = [3, -1, 0, 7, -5, 10, -2]
-    positivos = list(filter(lambda x:x>0 , numeros))
+    positivos = list(filter(lambda x: x > 0, numeros))
     return positivos
 
 
@@ -72,10 +85,11 @@ Dada la lista numeros = [10, 3, 7, 2, 15], aplicá los métodos de lista necesar
 Arma la función y su test asociado
 """
 
+
 def ejercicio_6():
     numeros = [10, 3, 7, 2, 15]
     numeros.append(20)
-    numeros.insert(2,5)
+    numeros.insert(2, 5)
     numeros.remove(7)
     numeros.sort()
     return numeros
@@ -116,9 +130,8 @@ que retorna una tupla con:
 Generá también su test asociado
 """
 
-def ejercicio_8():
-    letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
-    cadena = "Universidad"
+
+def ejercicio_8(letras, cadena):
     return letras[:3], cadena[3:8]
 
 
@@ -149,10 +162,10 @@ patente = "AB629CZ"
 
 import re
 
+
 def ejercicio_9(patente):
-    pattern = r'^[A-Z]{2}\d{3}[A-Z]{2}$'
-    check = re.match(pattern, patente)
-    return bool(check)
+    pattern = r"^[A-Z]{2}\d{3}[A-Z]{2}$"
+    return bool(re.match(pattern, patente))
 
 
 """
@@ -177,5 +190,10 @@ Usá los siguientes datos ficticios:
 Generá además su correspondiente test asociado
 """
 
+
 def ejercicio_10():
-    return True
+    return [
+        {"legajo": 101, "nombre": "Ana", "apellido": "López"},
+        {"legajo": 102, "nombre": "Bruno", "apellido": "García"},
+        {"legajo": 103, "nombre": "Carla", "apellido": "Fernández"},
+    ]
